@@ -15,7 +15,7 @@ namespace ControleDeCursos
         Conexao obj = new Conexao();
         public void CadastrarCurso()
         {
-            string insert = $"insert into {tabela} values (null,'{nomeCurso}','{conteudoProgramatico}',{valorMensalidade},{cargaHoraria})";
+            string insert = $"insert into {tabela} values (null,'{nomeCurso}','{conteudoProgramatico}',{valorMensalidade.Replace(',','.')},{cargaHoraria})";
             obj.ExecutarComando(insert);
         }
 

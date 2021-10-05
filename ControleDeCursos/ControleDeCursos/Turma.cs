@@ -21,8 +21,8 @@ namespace ControleDeCursos
 
         public void AlterarTurma()
         {
-            string update = $@"update {tabela} set data_inicio = '{data_inicio}', data_termino = '{data_termino}', hora_inicio = '{hora_inicio}', hora termino = '{hora_termino}'
-            cursoid = {cursoid}, professorid = {professorid} where id = '{id}'";
+            string update = $@"update {tabela} set data_inicio = '{data_inicio}', data_termino = '{data_termino}', hora_inicio = '{hora_inicio}', hora_termino = '{hora_termino}',
+            cursoid = {cursoid}, professorid = {professorid} where id = {id}";
             obj_conexao.ExecutarComando(update);
 
         }

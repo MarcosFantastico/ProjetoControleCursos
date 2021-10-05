@@ -59,11 +59,14 @@ namespace ControleDeCursos
 
         private void btn_excluir_Click(object sender, EventArgs e)
         {
-            preencheCampos();
-            obj_professor.ExcluirProfessor();
-            MessageBox.Show("Registro Removido com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            limpaCampos();
-            dgv_professores.DataSource = obj_professor.ListarProfessores();
+            if (MessageBox.Show("Tem Certeza?", "Excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Information).ToString() == "Yes")
+            {
+                preencheCampos();
+                obj_professor.ExcluirProfessor();
+                MessageBox.Show("Registro Removido com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                limpaCampos();
+                dgv_professores.DataSource = obj_professor.ListarProfessores();
+            }
         }
 
         private void dgv_professores_CellClick(object sender, DataGridViewCellEventArgs e)
