@@ -10,9 +10,7 @@ namespace ControleDeCursos
     class Curso
     {
         public int codigoCurso, cargaHoraria;
-        public string nomeCurso, conteudoProgramatico;
-        public double valorMensalidade;
-        public string tabela = "curso";
+        public string nomeCurso, conteudoProgramatico, valorMensalidade, tabela = "curso";
 
         Conexao obj = new Conexao();
         public void CadastrarCurso()
@@ -23,7 +21,7 @@ namespace ControleDeCursos
 
         public void AlterarCurso()
         {
-            string update = $@"update {tabela} set nome = '{nomeCurso}', conteudo_programatico = '{conteudoProgramatico}', valor_mensalidade = {valorMensalidade}, 
+            string update = $@"update {tabela} set nome = '{nomeCurso}', conteudo_programatico = '{conteudoProgramatico}', valor_mensalidade = {valorMensalidade.Replace(',','.')}, 
             carga_horaria = {cargaHoraria} where id = '{codigoCurso}'";
             obj.ExecutarComando(update);
 

@@ -10,8 +10,8 @@ namespace ControleDeCursos
     class Professor
     {
         public int id;
-        public string nome, telefone, tabela = "professor";
-        public double valorAula;
+        public string nome, telefone, valorAula, tabela = "professor";
+
 
         Conexao obj_conexao = new Conexao();
 
@@ -23,7 +23,7 @@ namespace ControleDeCursos
 
         public void AlterarProfessor()
         {
-            string update = $@"update {tabela} set nome = '{nome}', valor_aula = {valorAula}, telefone = {telefone} where id = '{id}'";
+            string update = $@"update {tabela} set nome = '{nome}', valor_aula = {valorAula}, telefone = '{telefone}' where id = {id}";
             obj_conexao.ExecutarComando(update);
 
         }

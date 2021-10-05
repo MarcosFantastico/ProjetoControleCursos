@@ -28,7 +28,7 @@ namespace ControleDeCursos
             obj_conexao.Conectar();
             obj_professor.id = int.Parse(txt_codigo.Text);
             obj_professor.nome = txt_nome.Text;
-            obj_professor.valorAula = double.Parse(txt_valor_aula.Text);
+            obj_professor.valorAula = txt_valor_aula.Text.Replace(',', '.');
             obj_professor.telefone = txt_telefone.Text;
         }
         private void limpaCampos()
@@ -68,6 +68,14 @@ namespace ControleDeCursos
 
         private void dgv_professores_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (dgv_professores.Rows[e.RowIndex].Cells[0].Value.ToString() == "")
+            {
+                txt_codigo.Text = "0";
+            }
+            else
+            {
+                txt_codigo.Text = dgv_professores.Rows[e.RowIndex].Cells[0].Value.ToString();
+            }
             txt_codigo.Text = dgv_professores.Rows[e.RowIndex].Cells[0].Value.ToString();
             txt_nome.Text = dgv_professores.Rows[e.RowIndex].Cells[1].Value.ToString();
             txt_valor_aula.Text = dgv_professores.Rows[e.RowIndex].Cells[2].Value.ToString();
